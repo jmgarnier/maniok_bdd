@@ -1,1 +1,0 @@
-require "maniok_bdd"

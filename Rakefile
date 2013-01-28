@@ -1,7 +1,7 @@
 require "bundler/gem_tasks"
 
 task :default do
-  sh "rspec spec/"
+  sh "rspec spec/unit"
 end
 
 # extracted from https://github.com/grosser/project_template

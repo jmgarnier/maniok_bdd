@@ -1,7 +1,14 @@
 source :rubygems
 gemspec
 
+# development gems
 gem "rake"
-gem "rspec", "~> 2.11"
-gem "guard-rspec"
+
+# Unit Tests
+gem "rspec-core"
+gem "wrong"
+
+# Guard
 gem "rb-fsevent", "~> 0.9.1"
+gem 'growl'
+gem "guard-rspec"
