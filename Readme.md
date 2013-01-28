@@ -1,5 +1,7 @@
 BDD with POROs
 
+[![Build Status](https://travis-ci.org/21croissants/maniok_bdd.png?branch=master)](https://travis-ci.org/21croissants/maniok_bdd)
+
 Install
 =======
 
@@ -15,4 +17,3 @@ Author
 [Jean-Michel Garnier](http://21croissants.com)<br/>
 
 License: MIT<br/>
-[![Build Status](https://secure.travis-ci.org/21croissants/maniok_bdd.png)](http://travis-ci.org/21croissants/maniok_bdd)
