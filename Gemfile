@@ -4,6 +4,9 @@ gemspec
 # development gems
 gem "rake"
 
+# Acceptance and Integration tests
+gem "cucumber" # TODO go meta and use maniok_bdd as soon as there is a runner;)
+
 # Unit Tests
 gem "rspec-core"
 gem "wrong"
