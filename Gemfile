@@ -12,3 +12,5 @@ gem "wrong"
 gem "rb-fsevent", "~> 0.9.1"
 gem 'growl'
 gem "guard-rspec"
+
+gem "relish"
