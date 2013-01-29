@@ -22,7 +22,9 @@ Feature: .feature.rb command line generator
 
     When I run `maniok the_simplest_feature.feature`
 
-    Then the file "spec/acceptance/simplest.feature.rb" should contain:
+    Then the exit status should be 0
+
+    And the file "spec/acceptance/simplest.feature.rb" should contain:
     """
     require 'spec_helper'
 

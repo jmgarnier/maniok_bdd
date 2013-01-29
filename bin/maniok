@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+
+begin
+  require "bundler/setup"
+rescue LoadError
+end
+
+begin
+  require 'maniok_bdd'
+rescue LoadError
+  require_relative '../lib/maniok_bdd'
+end
+
+# cli = Spinach::Cli.new(ARGV)
+exit 1 # cli.run
