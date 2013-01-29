@@ -1,14 +1,13 @@
-Feature: Feature to Ruby Generator
+Feature: .feature.rb command line generator
 
   In order to save time,
 
-  As a Developer who writes features in collaboration,
+  As a Developer who writes features in collaboration with a Customer / Product Owner,
 
-  I want to generate *.feature.rb fies from plain text .feature files with empty steps blocks.
+  I want to generate *.feature.rb files from plain text .feature files with empty steps blocks.
 
   Background:
-    * A ruby project
-    * a "the_simplest_feature.feature" file:
+    * a file named "simplest.feature" with:
     """
     Feature: The Simplest Feature
       A description
@@ -19,11 +18,11 @@ Feature: Feature to Ruby Generator
         Then things should work as expected
     """
 
-  Scenario: First time generation
+  Scenario: Generate a .feature.rb file from a new .feature file (1st time)
 
-    When I run the manioc command on the feature
+    When I run `maniok the_simplest_feature.feature`
 
-    Then it creates a "spec/acceptance/the_simplest_feature.feature.rb" file with:
+    Then the file "spec/acceptance/simplest.feature.rb" should contain:
     """
     require 'spec_helper'
 

@@ -1,6 +1,6 @@
 <%
 step_definitions = Dir.glob('spec/acceptance/cucumber/step_definitions/**/*.rb').map { |file| "-r #{file}" }.join(" ")
-std_opts = "--color --strict --tags ~@draft #{step_definitions}"
+std_opts = "--color --strict --tags ~@draft -r spec/acceptance/cucumber/env.rb #{step_definitions}"
 %>
 default: <%= std_opts %>
 progress: --format progress <%= std_opts %>

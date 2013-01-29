@@ -6,6 +6,7 @@ gem "rake"
 
 # Acceptance and Integration tests
 gem "cucumber" # TODO go meta and use maniok_bdd as soon as there is a runner;)
+gem "aruba"
 
 # Unit Tests
 gem "rspec-core"
