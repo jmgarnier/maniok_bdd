@@ -1,15 +1,14 @@
 #!/usr/bin/env ruby
 
-begin
-  require "bundler/setup"
-rescue LoadError
-end
+module ManiokBdd;end
 
-begin
-  require 'maniok_bdd'
-rescue LoadError
-  require_relative '../lib/maniok_bdd'
-end
+# Code commented until I write a test using aruba step "I'm using a clean gemset":
+# https://github.com/cucumber/aruba/blob/master/lib/aruba/api.rb#L368
 
-# cli = Spinach::Cli.new(ARGV)
-exit 1 # cli.run
+#begin
+#  require 'maniok_bdd/cli'
+#rescue LoadError
+  require_relative '../lib/maniok_bdd/cli'
+#end
+
+exit ManiokBdd::Cli.new(ARGV).run
