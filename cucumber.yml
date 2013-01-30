@@ -4,3 +4,4 @@ std_opts = "--color --strict --tags ~@draft -r spec/acceptance/cucumber/support/
 %>
 default: <%= std_opts %>
 progress: --format progress <%= std_opts %>
+guard: --format pretty --tags @wip <%= std_opts %>
