@@ -12,10 +12,15 @@ gem "aruba"
 gem "rspec-core"
 gem "wrong"
 
+gem "fakefs"
+
+gem "gimme"
+
 # Guard
 gem "rb-fsevent", "~> 0.9.1"
 gem 'growl'
 gem "guard-rspec"
 gem 'guard-cucumber'
 
+# documentation
 gem "relish"
