@@ -1,9 +1,9 @@
 class ManiokBdd::Cli
-  def initialize(args = ARGV)
-    @args = args
+  def initialize(poro_generator)
+    @poro_generator = poro_generator
   end
 
-  def run
-    0 # success:)
+  def run(feature_filepath)
+    @poro_generator.generate feature_filepath
   end
 end
