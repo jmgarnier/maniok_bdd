@@ -9,6 +9,7 @@ module ManiokBdd;end
 #  require 'maniok_bdd/cli'
 #rescue LoadError
   require_relative '../lib/maniok_bdd/cli'
+  require_relative '../lib/maniok_bdd/generator'
 #end
 
-exit ManiokBdd::Cli.new(ARGV).run
+exit ManiokBdd::Cli.new.run ARGV
