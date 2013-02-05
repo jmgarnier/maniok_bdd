@@ -6,14 +6,20 @@ module ManiokBdd
 
   describe Cli do
 
-    context "When an exisiting .feature file is passed" do
+    context "When a valid existing .feature file is passed" do
+
+      before do
+        @generator = gimme "generator"
+        cli = Cli.new @generator
+        @returned_code = cli.run "fake.feature"
+      end
 
       it "runs the generator" do
-        generator = gimme "generator"
-        cli = Cli.new generator
-        cli.run "fake.feature"
+        verify(@generator).generate(anything)
+      end
 
-        verify(generator).generate(anything)
+      it "returns 0 when generation was successfull" do
+        expect { @returned_code == 0 }
       end
     end
 
