@@ -32,8 +32,7 @@ Feature: .feature.rb command line generator
 
       Description <<TXT
       A description
-    >>
-      end
+TXT
 
       Scenario "The Simplest Scenario" do
 
