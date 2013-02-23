@@ -1,12 +1,17 @@
 require "bundler/gem_tasks"
 require "rspec/core/rake_task"
+require 'cucumber/rake/task'
+
+task :default => [:spec, :features]
+
+Cucumber::Rake::Task.new(:features) do |t|
+  t.cucumber_opts = "features --format progress"
+end
 
 desc "Run all unit tests"
 RSpec::Core::RakeTask.new(:spec) do |t|
   t.rspec_opts = "--color --pattern spec/unit/**/*_spec.rb"
 end
-
-task :default => :spec
 
 # extracted from https://github.com/grosser/project_template
 rule /^version:bump:.*/ do |t|
