@@ -18,6 +18,7 @@ Feature: .feature.rb command line generator
         Then things should work as expected
     """
 
+  @draft
   Scenario: Generate a .feature.rb file from a new .feature file (1st time)
 
     When I run `maniok the_simplest_feature.feature`
