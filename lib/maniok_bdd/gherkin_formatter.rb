@@ -12,7 +12,7 @@ class ManiokBdd::GherkinFormatter
   def to_s
 <<RUBY_FEATURE
 Feature "#{@gherkin_model_feature.name}" do
-
+#{@gherkin_model_feature.description}
 end
 RUBY_FEATURE
   end
