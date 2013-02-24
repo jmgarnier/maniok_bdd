@@ -13,12 +13,18 @@ module ManiokBdd
         @gherkin_formatter = GherkinFormatter.build feature_path
       end
 
+      def expect_presence_of(text)
+        expect { @gherkin_formatter.to_s.include? text }
+      end
+
       describe "builds a Feature block" do
         it "with a name" do
-          expect { @gherkin_formatter.to_s.include? "Feature \"The Simplest Feature\" do" }
+          expect_presence_of "Feature \"The Simplest Feature\" do"
         end
 
-        xit "with a description"
+        it "with a description" do
+          expect_presence_of "A description"
+        end
         xit "with a background"
         it "with a list of scenarios"
       end
