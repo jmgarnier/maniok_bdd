@@ -14,6 +14,9 @@ Feature: The Simplest Feature
   A description
 
   Scenario: The Simplest Scenario
+    Given some pre-conditions
+    When something happens
+    Then things should work as expected
 FEATURE
       end
 
@@ -43,7 +46,7 @@ FEATURE
           expect_presence_of "Scenario \"The Simplest Scenario\" do"
         end
 
-        xit "gets the list of steps" do
+        it "gets the list of steps" do
           expect_presence_of "    Given"
         end
       end

@@ -18,7 +18,7 @@ class ManiokBdd::GherkinFormatter
   end
 
   class Feature
-    attr_accessor :scenarios
+    attr_reader :scenarios
 
     def initialize(gherkin_model_feature)
       @gherkin_model_feature = gherkin_model_feature
@@ -47,15 +47,42 @@ RUBY_FEATURE
   end
 
   class Scenario
+    attr_reader :steps
     def initialize(gherkin_model_scenario)
       @gherkin_model_scenario = gherkin_model_scenario
+      @steps = []
     end
 
     def to_s
       <<RUBY_SCENARIO
   Scenario "#{@gherkin_model_scenario.name}" do
+    #{print_steps}
   end
 RUBY_SCENARIO
+    end
+
+    def print_steps
+      @steps.map do |step|
+        step.to_s
+      end.join("\n")
+    end
+  end
+
+  def step(gherkin_model_step)
+    @current_scenario.steps << Step.new(gherkin_model_step)
+  end
+
+  class Step
+    def initialize(gherkin_model_step)
+      @gherkin_model_step = gherkin_model_step
+    end
+
+    def to_s
+      <<RUBY_STEP
+    #{@gherkin_model_step.keyword} "#{@gherkin_model_step.name}" do
+
+    end
+RUBY_STEP
     end
   end
 
