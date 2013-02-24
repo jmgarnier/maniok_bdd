@@ -12,6 +12,8 @@ module ManiokBdd
 <<FEATURE
 Feature: The Simplest Feature
   A description
+
+  Scenario: The Simplest Scenario
 FEATURE
       end
 
@@ -33,17 +35,22 @@ FEATURE
           expect_presence_of "A description"
         end
         xit "with a background"
-        it "with a list of scenarios"
+
+        it "with a list of scenarios" do
+          expect_presence_of "  Scenario"
+        end
       end
 
       describe "For each scenario" do
-        it "build a name"
-        it "with a list of steps"
+        it "gets the name" do
+          expect_presence_of "Scenario \"The Simplest Scenario\" do"
+        end
+        it "gets the list of steps"
       end
 
       describe "For each step" do
 
-        it "builds a description"
+        it "gets the description inside a block"
       end
     end
 
