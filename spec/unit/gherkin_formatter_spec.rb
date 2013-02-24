@@ -8,8 +8,15 @@ module ManiokBdd
 
     describe ".build" do
 
+      def simplest_feature
+<<FEATURE
+Feature: The Simplest Feature
+  A description
+FEATURE
+      end
+
       before do
-        feature_path = fixture_path "simplest.feature"
+        feature_path = write_feature simplest_feature
         @gherkin_formatter = GherkinFormatter.build feature_path
       end
 
