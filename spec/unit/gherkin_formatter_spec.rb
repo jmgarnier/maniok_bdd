@@ -1,6 +1,5 @@
 require_relative "spec_helper"
 
-require 'gherkin/parser/parser'
 require 'maniok_bdd/gherkin_formatter'
 
 module ManiokBdd
@@ -14,12 +13,12 @@ module ManiokBdd
         @gherkin_formatter = GherkinFormatter.build feature_path
       end
 
-      describe "builds a feature" do
+      describe "builds a Feature block" do
         it "with a name" do
-          expect { @gherkin_formatter.feature.name == "The Simplest Feature" }
+          expect { @gherkin_formatter.to_s.include? "Feature \"The Simplest Feature\" do" }
         end
 
-        it "with a description"
+        xit "with a description"
         xit "with a background"
         it "with a list of scenarios"
       end

@@ -11,3 +11,8 @@ Wrong.config.alias_assert :expect, override: true
 Wrong.config.color
 
 $LOAD_PATH.unshift File.expand_path(File.dirname(__FILE__) + '/../../lib')
+
+# Helpers
+def fixture_path file_name
+  File.join File.dirname(__FILE__), "..","fixtures", file_name
+end
