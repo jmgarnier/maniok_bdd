@@ -10,22 +10,53 @@ class ManiokBdd::GherkinFormatter
   end
 
   def to_s
-    <<RUBY_FEATURE
-Feature "#{@gherkin_model_feature.name}" do
-#{@gherkin_model_feature.description}
-
-#{print_scenarios}
-end
-RUBY_FEATURE
+    @feature.to_s
   end
 
   def feature(gherkin_model_feature)
-    @gherkin_model_feature = gherkin_model_feature
+    @feature = Feature.new gherkin_model_feature
+  end
+
+  class Feature
+    attr_accessor :scenarios
+
+    def initialize(gherkin_model_feature)
+      @gherkin_model_feature = gherkin_model_feature
+      @scenarios = []
+    end
+
+    def to_s
+      <<RUBY_FEATURE
+Feature "#{@gherkin_model_feature.name}" do
+#{@gherkin_model_feature.description}
+
+      #{print_scenarios}
+end
+RUBY_FEATURE
+    end
+
+    def print_scenarios
+      @scenarios.map do |scenario|
+        scenario.to_s
+      end.join("\n")
+    end
   end
 
   def scenario(gherkin_model_scenario)
-    @gherkin_model_scenarios ||= []
-    @gherkin_model_scenarios << gherkin_model_scenario
+    @feature.scenarios << (@current_scenario = Scenario.new(gherkin_model_scenario))
+  end
+
+  class Scenario
+    def initialize(gherkin_model_scenario)
+      @gherkin_model_scenario = gherkin_model_scenario
+    end
+
+    def to_s
+      <<RUBY_SCENARIO
+  Scenario "#{@gherkin_model_scenario.name}" do
+  end
+RUBY_SCENARIO
+    end
   end
 
   # to avoid undefined method `uri' & efo and keep Gherkin parser happy
@@ -35,18 +66,4 @@ RUBY_FEATURE
   def eof
   end
 
-  private
-
-  def print_scenarios
-    @gherkin_model_scenarios.map do |scenario|
-      print_scenario(scenario)
-    end.join("\n")
-  end
-
-  def print_scenario(gherkin_model_scenario)
-    <<RUBY_SCENARIO
-  Scenario "#{gherkin_model_scenario.name}" do
-  end
-RUBY_SCENARIO
-  end
 end
