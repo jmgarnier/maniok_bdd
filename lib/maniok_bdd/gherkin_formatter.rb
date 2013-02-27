@@ -3,8 +3,8 @@ require 'gherkin/parser/parser'
 class ManiokBdd::GherkinFormatter
 
   def self.build(feature_file)
-    new.tap do |builder|
-      parser = Gherkin::Parser::Parser.new(builder, true)
+    new.tap do |gherkin_formatter|
+      parser = Gherkin::Parser::Parser.new(gherkin_formatter, true)
       parser.parse(File.read(feature_file), feature_file, 0)
     end
   end
