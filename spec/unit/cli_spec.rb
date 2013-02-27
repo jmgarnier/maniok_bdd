@@ -7,15 +7,17 @@ module ManiokBdd
 
   describe Cli do
 
-    context "When a valid existing .feature file is passed" do
+    context "With a feature file argument" do
 
       before do
         spy_on GherkinFormatter, :build
-        @exit_code = Cli.new.run "fake.feature"
+
+        @cli = Cli.new(["features/fake.feature"])
+        @exit_code = @cli.run
       end
 
       it "uses a GherkinFormatter to parse the feature file" do
-        verify(GherkinFormatter).build("fake.feature")
+        verify(GherkinFormatter).build("features/fake.feature")
       end
 
       it "writes the result to a spec/acceptance/<feature-name>.feature.rb file"
