@@ -1,6 +1,11 @@
 class ManiokBdd::Cli
-  def run(feature_file)
-    ManiokBdd::GherkinFormatter.build feature_file
+
+  def initialize(args)
+    @feature_file = args.first
+  end
+
+  def run
+    ManiokBdd::GherkinFormatter.build @feature_file
     0 # success:)
   end
 end
