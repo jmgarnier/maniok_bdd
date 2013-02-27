@@ -25,10 +25,17 @@ module ManiokBdd
         expect { ruby_file_path.include?("spec/acceptance/fake.feature.rb") }
       end
 
-      it "writes the result to a spec/acceptance/<feature-name>.feature.rb file"
+      it "writes the result to a spec/acceptance/<feature-name>.feature.rb file" do
+        expect { File.exist? "spec/acceptance/fake.feature.rb" }
+      end
 
       it "returns 0 to tell that it ran successfully" do
         expect { @exit_code == 0 }
+      end
+
+      after do
+        # TODO use fake.fs for proper clean up
+        File.delete "spec/acceptance/fake.feature.rb"
       end
 
     end
