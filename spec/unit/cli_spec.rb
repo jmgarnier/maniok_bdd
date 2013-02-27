@@ -21,8 +21,8 @@ module ManiokBdd
       end
 
       it "uses the /spec/acceptance folder and appends .rb to the feature file as a naming convention" do
-        ruby_file_path = @cli.ruby_file.path
-        expect { ruby_file_path.include?("/spec/acceptance/fake.feature.rb") }
+        ruby_file_path = @cli.ruby_file
+        expect { ruby_file_path.include?("spec/acceptance/fake.feature.rb") }
       end
 
       it "writes the result to a spec/acceptance/<feature-name>.feature.rb file"

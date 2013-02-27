@@ -8,4 +8,9 @@ class ManiokBdd::Cli
     ManiokBdd::GherkinFormatter.build @feature_file
     0 # success:)
   end
+
+  def ruby_file
+    feature_file_basename = File.basename(@feature_file)
+    File.join "spec", "acceptance", "#{feature_file_basename}.rb"
+  end
 end
