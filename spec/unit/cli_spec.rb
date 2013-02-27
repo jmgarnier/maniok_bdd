@@ -10,6 +10,11 @@ module ManiokBdd
     context "With a feature file argument" do
 
       before do
+        gherkin_formatter = gimme(GherkinFormatter)
+        give(gherkin_formatter).to_s { "hi" }
+
+        give(GherkinFormatter).build("features/fake.feature") { gherkin_formatter }
+
         spy_on GherkinFormatter, :build
 
         @cli = Cli.new(["features/fake.feature"])
