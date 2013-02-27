@@ -31,6 +31,7 @@ FEATURE
         end
 
         it "with a description" do
+          pending "Implement Feature description"
           expect_presence_of "A description"
         end
 

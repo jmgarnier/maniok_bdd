@@ -26,11 +26,15 @@ class ManiokBdd::GherkinFormatter
     end
 
     def to_s
-      <<RUBY_FEATURE
-Feature "#{@gherkin_model_feature.name}" do
-#{@gherkin_model_feature.description}
+      # TODO later
+      #{@gherkin_model_feature.description}
 
-      #{print_scenarios}
+      <<RUBY_FEATURE
+require 'spec_helper'
+
+Feature "#{@gherkin_model_feature.name}" do
+
+#{print_scenarios}
 end
 RUBY_FEATURE
     end
@@ -56,7 +60,8 @@ RUBY_FEATURE
     def to_s
       <<RUBY_SCENARIO
   Scenario "#{@gherkin_model_scenario.name}" do
-    #{print_steps}
+
+#{print_steps}
   end
 RUBY_SCENARIO
     end
@@ -79,7 +84,7 @@ RUBY_SCENARIO
 
     def to_s
       <<RUBY_STEP
-    #{@gherkin_model_step.keyword} "#{@gherkin_model_step.name}" do
+    #{@gherkin_model_step.keyword}"#{@gherkin_model_step.name}" do
 
     end
 RUBY_STEP

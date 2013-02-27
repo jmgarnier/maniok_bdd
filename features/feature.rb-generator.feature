@@ -7,7 +7,7 @@ Feature: .feature.rb command line generator
   I want to generate *.feature.rb files from plain text .feature files with empty steps blocks.
 
   Background:
-    * a file named "simplest.feature" with:
+    * a file named "./features/simplest.feature" with:
     """
     Feature: The Simplest Feature
       A description
@@ -18,36 +18,33 @@ Feature: .feature.rb command line generator
         Then things should work as expected
     """
 
-  @draft
   Scenario: Generate a .feature.rb file from a new .feature file (1st time)
 
-    When I run `maniok the_simplest_feature.feature`
+    When I run `maniok features/simplest.feature`
 
     Then the exit status should be 0
 
     And the file "spec/acceptance/simplest.feature.rb" should contain:
-    """
-    require 'spec_helper'
+"""
+require 'spec_helper'
 
-    Feature 'The Simplest Feature' do
+Feature "The Simplest Feature" do
 
-      Description <<TXT
-      A description
-TXT
+  Scenario "The Simplest Scenario" do
 
-      Scenario "The Simplest Scenario" do
+    Given "some pre-conditions" do
 
-        Given "some pre-conditions" do
-
-        end
-
-        When "something happens" do
-
-        end
-
-        Then "things should work as expected" do
-
-        end
-      end
     end
-    """
+
+    When "something happens" do
+
+    end
+
+    Then "things should work as expected" do
+
+    end
+
+  end
+
+end
+"""
