@@ -7,7 +7,7 @@ guard 'rspec',
       spec_paths: %w( spec/unit ),
       focus_on_failed: true do
   watch(%r{^spec/unit/.+_spec\.rb$})
-  watch(%r{^lib/(.+)\.rb$}) { |m| "spec/unit/#{m[1]}_spec.rb" }
+  watch(%r{^lib/maniok_bdd/(.+)\.rb$}) { |m| "spec/unit/#{m[1]}_spec.rb" }
   watch('spec/unit/spec_helper.rb') { "spec/unit" }
 end
 
