@@ -16,3 +16,17 @@ guard 'cucumber', cli: "--profile guard" do
   watch(%r{^spec/acceptance/cucumber/support/.+$}) { 'features' }
   watch(%r{^spec/acceptance/cucumber/step_definitions/(.+)_steps\.rb$}) { |m| Dir[File.join("**/#{m[1]}.feature")][0] || 'features' }
 end
+
+group 'maniok-acceptance-tests' do
+
+  guard 'rspec',
+        cli: "--format documentation --backtrace",
+        bundler: false,
+        spec_paths: %w( spec/acceptance/maniok ),
+        focus_on_failed: true do
+    watch(%r{^lib/(.+)\.rb$}) { "spec/acceptance/maniok" }
+    watch(%r{^spec/acceptance/maniok/.+feature_spec\.rb$})
+  end
+
+end
+
