@@ -29,6 +29,10 @@ module ManiokBdd
         Step :but, message, options, &block
       end
 
+      def _(message, options = {}, &block)
+        Step :_, message, options, &block
+      end
+
       private
 
       def Step(type, message, options = {}, &block)

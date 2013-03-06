@@ -26,5 +26,10 @@ Feature: Gherkin Spoken
       But "sometimes not, shit happens, c'est la vie!" do end
     """
 
+  Scenario: Star (*)
+    * It can run the following steps:
+    """
+      _ "underscore is a valid name for a method in ruby" do end
+    """
 
 
