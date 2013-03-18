@@ -1,2 +1,4 @@
-tmp/*
+tmp/aruba
+tmp/features
+tmp/rspec_guard_result
 pkg/*
