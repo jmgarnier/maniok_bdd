@@ -1,6 +1,9 @@
 require 'wrong/adapters/rspec'
 require 'gimme'
 require 'fakefs/safe'
+require 'coveralls'
+
+Coveralls.wear!
 
 RSpec.configure do |rspec|
   rspec.expect_with Wrong

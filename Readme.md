@@ -1,6 +1,10 @@
 BDD with POROs
 
-[![Gem Version](https://badge.fury.io/rb/maniok_bdd.png)](http://badge.fury.io/rb/maniok_bdd) [![Dependency Status](https://gemnasium.com/21croissants/maniok_bdd.png)](https://gemnasium.com/21croissants/maniok_bdd) [![Build Status](https://travis-ci.org/21croissants/maniok_bdd.png?branch=master)](https://travis-ci.org/21croissants/maniok_bdd) [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/21croissants/maniok_bdd)
+[![Gem Version](https://badge.fury.io/rb/maniok_bdd.png)](http://badge.fury.io/rb/maniok_bdd)
+[![Dependency Status](https://gemnasium.com/21croissants/maniok_bdd.png)](https://gemnasium.com/21croissants/maniok_bdd)
+[![Build Status](https://travis-ci.org/21croissants/maniok_bdd.png?branch=master)](https://travis-ci.org/21croissants/maniok_bdd)
+[![Coverage Status](https://coveralls.io/repos/21croissants/maniok_bdd/badge.png?branch=master)](https://coveralls.io/r/21croissants/maniok_bdd)
+[![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/21croissants/maniok_bdd)
 
 # Documentation
 

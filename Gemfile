@@ -4,6 +4,9 @@ gemspec
 # development gems
 gem "rake"
 
+# https://coveralls.io/r/21croissants/maniok_bdd
+gem 'coveralls', require: false
+
 # Acceptance and Integration tests
 gem "cucumber" # TODO go meta and use maniok_bdd as soon as there is a runner;)
 gem "aruba"
