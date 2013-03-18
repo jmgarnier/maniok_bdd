@@ -1,4 +1,5 @@
 tmp/aruba
 tmp/features
 tmp/rspec_guard_result
+tmp/simplest.feature
 pkg/*
