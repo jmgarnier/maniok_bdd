@@ -17,13 +17,59 @@ class ManiokBdd::GherkinFormatter
     @feature = Feature.new gherkin_model_feature
   end
 
-  class Feature
-    attr_reader :scenarios
+  def scenario(gherkin_model_scenario)
+    @feature.scenarios << (@current_scenario = Scenario.new(gherkin_model_scenario))
+  end
 
-    def initialize(gherkin_model_feature)
-      @gherkin_model_feature = gherkin_model_feature
-      @scenarios = []
+  def step(gherkin_model_step)
+    @current_scenario.steps << Step.new(gherkin_model_step)
+  end
+
+  # to avoid undefined method `uri' & efo and keep Gherkin parser happy
+  def uri(*)
+  end
+
+  def eof
+  end
+
+  private
+
+  class GherkinCollection
+    attr_reader :elements
+
+    def initialize(gherkin_object)
+      @gherkin_object = gherkin_object
+      @elements = []
     end
+
+    def to_s
+      <<RUBY
+#{gherkin_to_maniok_block} do
+
+#{print_elements}
+end
+RUBY
+    end
+
+    private
+
+    def gherkin_to_maniok_block
+      "#{gherkin_model_name} \"#{@gherkin_object.name}\""
+    end
+
+    def gherkin_model_name
+      @gherkin_object.class.name.split('::').last
+    end
+
+    def print_elements
+      @elements.map do |element|
+        element.to_s
+      end.join("\n")
+    end
+  end
+
+  class Feature < GherkinCollection
+    alias :scenarios :elements
 
     def to_s
       # TODO later
@@ -32,49 +78,24 @@ class ManiokBdd::GherkinFormatter
       <<RUBY_FEATURE
 require 'spec_helper'
 
-Feature "#{@gherkin_model_feature.name}" do
-
-#{print_scenarios}
-end
+#{super.to_s}
 RUBY_FEATURE
     end
 
-    def print_scenarios
-      @scenarios.map do |scenario|
-        scenario.to_s
-      end.join("\n")
-    end
   end
 
-  def scenario(gherkin_model_scenario)
-    @feature.scenarios << (@current_scenario = Scenario.new(gherkin_model_scenario))
-  end
-
-  class Scenario
-    attr_reader :steps
-    def initialize(gherkin_model_scenario)
-      @gherkin_model_scenario = gherkin_model_scenario
-      @steps = []
-    end
+  class Scenario < GherkinCollection
+    alias :steps :elements
 
     def to_s
       <<RUBY_SCENARIO
-  Scenario "#{@gherkin_model_scenario.name}" do
+  #{gherkin_to_maniok_block} do
 
-#{print_steps}
+#{print_elements}
   end
 RUBY_SCENARIO
     end
 
-    def print_steps
-      @steps.map do |step|
-        step.to_s
-      end.join("\n")
-    end
-  end
-
-  def step(gherkin_model_step)
-    @current_scenario.steps << Step.new(gherkin_model_step)
   end
 
   class Step
@@ -89,13 +110,6 @@ RUBY_SCENARIO
     end
 RUBY_STEP
     end
-  end
-
-  # to avoid undefined method `uri' & efo and keep Gherkin parser happy
-  def uri(*)
-  end
-
-  def eof
   end
 
 end
