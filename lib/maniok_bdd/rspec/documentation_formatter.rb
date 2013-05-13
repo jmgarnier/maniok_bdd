@@ -18,7 +18,7 @@ module ManiokBdd::RSpec
 
         if example.options[:with_steps]
           full_message = "#{current_indentation}#{example.description}"
-          output.puts white(full_message)
+          output.puts fixed_color(full_message)
         end
       end
 
@@ -28,7 +28,7 @@ module ManiokBdd::RSpec
 
       def example_step_passed(example_group, type, message, options)
         full_message = "#{current_indentation}  #{type.to_s.capitalize} #{message}"
-        output.puts green(full_message)
+        output.puts success_color(full_message)
       end
 
       def example_step_pending(example_group, type, message, options)
@@ -40,12 +40,12 @@ module ManiokBdd::RSpec
           full_message << " (PENDING)"
         end
 
-        output.puts yellow(full_message)
+        output.puts pending_color(full_message)
       end
 
       def example_step_failed(example_group, type, message, options)
         full_message = "#{current_indentation}  #{type.to_s.capitalize} #{message} (FAILED)"
-        output.puts red(full_message)
+        output.puts failure_color(full_message)
       end
     end
   end
