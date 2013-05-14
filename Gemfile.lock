@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    maniok_bdd (0.2.2)
+    maniok_bdd (0.2.3)
       gherkin (>= 2.5)
       rspec (~> 2.0)
 
