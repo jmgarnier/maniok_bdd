@@ -8,9 +8,9 @@ Cucumber::Rake::Task.new(:features) do |t|
   t.cucumber_opts = "features --format progress"
 end
 
-desc "Run all unit tests"
+desc "Run all unit & integration tests"
 RSpec::Core::RakeTask.new(:spec) do |t|
-  t.rspec_opts = "--color --pattern spec/unit/**/*_spec.rb"
+  t.rspec_opts = "--color --format doc"
 end
 
 # extracted from https://github.com/grosser/project_template

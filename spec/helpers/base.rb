@@ -14,10 +14,3 @@ Wrong.config.alias_assert :expect, override: true
 Wrong.config.color
 
 $LOAD_PATH.unshift File.expand_path(File.dirname(__FILE__) + '/../../lib')
-
-# Helpers
-def write_feature(content)
-  file_path = File.join File.dirname(__FILE__), "..", "..", "tmp", "simplest.feature"
-  open(file_path, 'w') { |f| f << content }
-  file_path
-end

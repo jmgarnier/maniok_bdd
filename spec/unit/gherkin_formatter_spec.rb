@@ -1,5 +1,4 @@
-require_relative "spec_helper"
-
+require_relative '../helpers/unit'
 require 'maniok_bdd/gherkin_formatter'
 
 module ManiokBdd
