@@ -43,6 +43,6 @@ end
 
 [Jean-Michel Garnier](http://21croissants.com)<br/>
 
-Heavily inspired by [Railsware rspec-example_steps](https://github.com/railsware/rspec-example_steps)
+Heavily inspired by http://coulda.tiggerpalace.com/ & [Railsware rspec-example_steps](https://github.com/railsware/rspec-example_steps)
 
 License: MIT<br/>
