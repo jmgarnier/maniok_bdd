@@ -1,4 +1,6 @@
-BDD with POROs
+![logo](http://seekingsustenance.files.wordpress.com/2010/04/manioc-whole.jpg)
+
+RSpec extension to run Gherkin steps
 
 [![Gem Version](https://badge.fury.io/rb/maniok_bdd.png)](http://badge.fury.io/rb/maniok_bdd)
 [![Dependency Status](https://gemnasium.com/21croissants/maniok_bdd.png)](https://gemnasium.com/21croissants/maniok_bdd)
@@ -10,16 +12,37 @@ BDD with POROs
 
 [Hosted on relish](https://www.relishapp.com/21croissants/maniok-bdd)
 
-# Install
+# Example
 
-    gem install maniok_bdd
+```ruby
+require 'spec_helper'
 
-# Usage
+Feature "The Simplest Feature"  do
 
-    CODE EXAMPLE
+  shared_steps "home" do
+    Given "I am on the home page" do
+      visit "/"
+    end
+  end
+
+  Scenario "The Simplest Scenario" do
+    include_steps "home"
+
+    When "something happens" do
+
+    end
+
+    Then "it should assert correctly" do
+      true.should be_true
+    end
+  end
+end
+``` 
 
 # Author
 
 [Jean-Michel Garnier](http://21croissants.com)<br/>
+
+Heavily inspired by [Railsware rspec-example_steps](https://github.com/railsware/rspec-example_steps)
 
 License: MIT<br/>
