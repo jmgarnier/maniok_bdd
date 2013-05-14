@@ -2,6 +2,8 @@ PATH
   remote: .
   specs:
     maniok_bdd (0.2.2)
+      gherkin (>= 2.5)
+      rspec (~> 2.0)
 
 GEM
   remote: http://rubygems.org/
