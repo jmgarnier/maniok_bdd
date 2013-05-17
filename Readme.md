@@ -19,7 +19,8 @@ Please read the [draft of the announcement blog post](https://gist.github.com/21
 ```ruby
 require 'spec_helper'
 
-Feature "The Simplest Feature"  do
+# type :feature is for Capybara 
+Feature "The Simplest Feature", type: :feature  do
 
   shared_steps "home" do
     Given "I am on the home page" do
