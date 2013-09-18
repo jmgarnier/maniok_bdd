@@ -10,9 +10,7 @@ RSpec extension to run Gherkin steps
 
 # Documentation
 
-Please read the [draft of the announcement blog post](https://github.com/21croissants/maniok_bdd/blob/master/introducing.md).
-
-[Hosted on relish](https://www.relishapp.com/21croissants/maniok-bdd) (out of date, I have to find a way to push my features!)
+Please read the [announcement blog post](https://github.com/21croissants/maniok_bdd/blob/master/introducing.md).
 
 # Example
 
