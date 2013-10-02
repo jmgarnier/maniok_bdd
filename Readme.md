@@ -7,7 +7,7 @@ RSpec extension to run Gherkin steps
 [![Build Status](https://travis-ci.org/21croissants/maniok_bdd.png?branch=master)](https://travis-ci.org/21croissants/maniok_bdd)
 [![Coverage Status](https://coveralls.io/repos/21croissants/maniok_bdd/badge.png?branch=master)](https://coveralls.io/r/21croissants/maniok_bdd)
 [![Code Climate](https://codeclimate.com/github/21croissants/maniok_bdd.png)](https://codeclimate.com/github/21croissants/maniok_bdd)
-
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/21croissants/maniok_bdd/trend.png)](https://bitdeli.com/free "Github Analytics Bitdeli Badge")
 # Documentation
 
 Please read the [announcement blog post](https://github.com/21croissants/maniok_bdd/blob/master/introducing.md).
