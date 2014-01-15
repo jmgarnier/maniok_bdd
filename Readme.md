@@ -13,6 +13,10 @@ RSpec extension to run Gherkin steps
 
 Please read the [announcement blog post](https://github.com/21croissants/maniok_bdd/blob/master/introducing.md).
 
+Warning, this project is a Work In Progress. Before going further, I would like to find fellow rubists who practice "Specification By Example" and got hurt by cucumber step definitions lack of readability and maintenance.
+
+Please keep in touch through [twitter](https://twitter.com/21croissants) or this [github issue]( https://github.com/21croissants/maniok_bdd/issues/1 ).
+
 # Example
 
 ```ruby
